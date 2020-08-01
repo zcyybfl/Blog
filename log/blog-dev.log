@@ -1,0 +1,134 @@
+2020-08-01 16:34:45.718  INFO 90724 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 90724 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-08-01 16:34:45.826 DEBUG 90724 --- [restartedMain] com.zlt.blog.BlogApplication             : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-08-01 16:34:45.826  INFO 90724 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: dev
+2020-08-01 16:34:46.011  INFO 90724 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-08-01 16:34:46.015  INFO 90724 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-08-01 16:34:49.009  INFO 90724 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-08-01 16:34:49.174  INFO 90724 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137ms. Found 0 JPA repository interfaces.
+2020-08-01 16:34:51.615  INFO 90724 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-08-01 16:34:51.641  INFO 90724 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-01 16:34:51.644  INFO 90724 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-08-01 16:34:51.651  INFO 90724 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-08-01 16:34:51.652  INFO 90724 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-08-01 16:34:51.653  INFO 90724 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-08-01 16:34:51.666  INFO 90724 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-08-01 16:34:52.320  INFO 90724 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-01 16:34:52.321  INFO 90724 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6304 ms
+2020-08-01 16:34:52.758  INFO 90724 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-01 16:34:52.829  INFO 90724 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-01 16:34:53.712  INFO 90724 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-01 16:34:53.945  INFO 90724 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-01 16:34:54.135  INFO 90724 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-08-01 16:34:54.633  INFO 90724 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-01 16:34:55.038  INFO 90724 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-08-01 16:34:55.649  WARN 90724 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-01 16:34:56.047  INFO 90724 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-01 16:34:56.115  INFO 90724 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-01 16:34:56.722  INFO 90724 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-01 16:34:59.631  INFO 90724 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-08-01 16:34:59.820  INFO 90724 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-08-01 16:34:59.824  INFO 90724 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-08-01 16:34:59.827  INFO 90724 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-08-01 16:34:59.869  INFO 90724 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 16.111 seconds (JVM running for 27.164)
+2020-08-01 16:35:13.956  INFO 90724 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-01 16:35:13.958  INFO 90724 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-01 16:35:14.024  INFO 90724 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 65 ms
+2020-08-01 16:35:14.461  INFO 90724 --- [http-nio-8080-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-08-01 16:35:14.684 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.dao.BlogMapper.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-08-01 16:35:14.760 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.dao.BlogMapper.getIndexBlog_COUNT  : ==> Parameters: 
+2020-08-01 16:35:15.114 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.dao.BlogMapper.getIndexBlog_COUNT  : <==      Total: 1
+2020-08-01 16:35:15.123 DEBUG 90724 --- [http-nio-8080-exec-1] c.zlt.blog.dao.BlogMapper.getIndexBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.update_time,b.description, t.name , u.nickname, u.avatar from t_blog b, t_type t,t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-08-01 16:35:15.124 DEBUG 90724 --- [http-nio-8080-exec-1] c.zlt.blog.dao.BlogMapper.getIndexBlog   : ==> Parameters: 6(Integer)
+2020-08-01 16:35:15.153 DEBUG 90724 --- [http-nio-8080-exec-1] c.zlt.blog.dao.BlogMapper.getIndexBlog   : <==      Total: 1
+2020-08-01 16:35:15.157 DEBUG 90724 --- [http-nio-8080-exec-1] c.zlt.blog.dao.TypeMapper.getIndexType   : ==>  Preparing: select t.id,t.name,b.id as blog_id from t_type t,t_blog b where t.id = b.type_id 
+2020-08-01 16:35:15.158 DEBUG 90724 --- [http-nio-8080-exec-1] c.zlt.blog.dao.TypeMapper.getIndexType   : ==> Parameters: 
+2020-08-01 16:35:15.163 DEBUG 90724 --- [http-nio-8080-exec-1] c.zlt.blog.dao.TypeMapper.getIndexType   : <==      Total: 1
+2020-08-01 16:35:15.165 DEBUG 90724 --- [http-nio-8080-exec-1] com.zlt.blog.dao.TagMapper.getIndexTag   : ==>  Preparing: select t.id,t.name,bt.blogs_id from t_tag t,t_blog_tags bt where t.id = bt.tags_id 
+2020-08-01 16:35:15.166 DEBUG 90724 --- [http-nio-8080-exec-1] com.zlt.blog.dao.TagMapper.getIndexTag   : ==> Parameters: 
+2020-08-01 16:35:15.194 DEBUG 90724 --- [http-nio-8080-exec-1] com.zlt.blog.dao.TagMapper.getIndexTag   : <==      Total: 2
+2020-08-01 16:35:15.196 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.dao.BlogMapper.getRecommendBlog    : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4 
+2020-08-01 16:35:15.197 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.dao.BlogMapper.getRecommendBlog    : ==> Parameters: 
+2020-08-01 16:35:15.212 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.dao.BlogMapper.getRecommendBlog    : <==      Total: 1
+2020-08-01 16:35:15.215  INFO 90724 --- [http-nio-8080-exec-1] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-08-01 16:35:15.215  INFO 90724 --- [http-nio-8080-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:18.119  INFO 90724 --- [http-nio-8080-exec-7] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-08-01 16:35:18.214 DEBUG 90724 --- [http-nio-8080-exec-7] c.z.b.dao.BlogMapper.getRecommendBlog    : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4 
+2020-08-01 16:35:18.214 DEBUG 90724 --- [http-nio-8080-exec-7] c.z.b.dao.BlogMapper.getRecommendBlog    : ==> Parameters: 
+2020-08-01 16:35:18.241 DEBUG 90724 --- [http-nio-8080-exec-7] c.z.b.dao.BlogMapper.getRecommendBlog    : <==      Total: 1
+2020-08-01 16:35:18.244  INFO 90724 --- [http-nio-8080-exec-7] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-08-01 16:35:18.245  INFO 90724 --- [http-nio-8080-exec-7] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:20.614  INFO 90724 --- [http-nio-8080-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.blog', args=[2, {}]}
+2020-08-01 16:35:20.754 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.blog.dao.BlogMapper.getBlogDetails   : ==>  Preparing: select b.id,b.first_picture,b.flag,b.title,b.content,b.views, b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,bt.tags_id from t_blog b,t_user u, t_type t, t_blog_tags bt where b.user_id = u.id and b.type_id = t.id and b.id = bt.blogs_id and b.id = ? 
+2020-08-01 16:35:20.757 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.blog.dao.BlogMapper.getBlogDetails   : ==> Parameters: 2(Long)
+2020-08-01 16:35:20.765 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.blog.dao.BlogMapper.getBlogDetails   : <==      Total: 2
+2020-08-01 16:35:21.509 DEBUG 90724 --- [http-nio-8080-exec-4] com.zlt.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog b set b.views = b.views+1 where b.id = ? 
+2020-08-01 16:35:21.510 DEBUG 90724 --- [http-nio-8080-exec-4] com.zlt.blog.dao.BlogMapper.updateViews  : ==> Parameters: 2(Long)
+2020-08-01 16:35:21.899 DEBUG 90724 --- [http-nio-8080-exec-4] com.zlt.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-08-01 16:35:21.982 DEBUG 90724 --- [http-nio-8080-exec-4] com.zlt.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag where id in ( 1 , 3 ) 
+2020-08-01 16:35:21.983 DEBUG 90724 --- [http-nio-8080-exec-4] com.zlt.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-08-01 16:35:22.002 DEBUG 90724 --- [http-nio-8080-exec-4] com.zlt.blog.dao.TagMapper.listTag       : <==      Total: 2
+2020-08-01 16:35:22.005  INFO 90724 --- [http-nio-8080-exec-4] com.zlt.blog.aspect.LogAspect            : Result : blog
+2020-08-01 16:35:22.005  INFO 90724 --- [http-nio-8080-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:23.485  INFO 90724 --- [http-nio-8080-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-08-01 16:35:23.509 DEBUG 90724 --- [http-nio-8080-exec-5] c.z.b.dao.BlogMapper.getRecommendBlog    : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4 
+2020-08-01 16:35:23.510 DEBUG 90724 --- [http-nio-8080-exec-5] c.z.b.dao.BlogMapper.getRecommendBlog    : ==> Parameters: 
+2020-08-01 16:35:23.524 DEBUG 90724 --- [http-nio-8080-exec-5] c.z.b.dao.BlogMapper.getRecommendBlog    : <==      Total: 1
+2020-08-01 16:35:23.526  INFO 90724 --- [http-nio-8080-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-08-01 16:35:23.526  INFO 90724 --- [http-nio-8080-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:23.795  INFO 90724 --- [http-nio-8080-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/comments/2', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.CommentController.comments', args=[2, {}]}
+2020-08-01 16:35:23.808 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==>  Preparing: select * from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-08-01 16:35:23.809 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==> Parameters: 2(Long), -1(Long)
+2020-08-01 16:35:23.840 DEBUG 90724 --- [http-nio-8080-exec-1] c.z.b.d.C.getCommentByBlogIdAndParentId  : <==      Total: 0
+2020-08-01 16:35:23.842  INFO 90724 --- [http-nio-8080-exec-1] com.zlt.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-08-01 16:35:23.842  INFO 90724 --- [http-nio-8080-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:35.384  INFO 90724 --- [http-nio-8080-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.CommentController.post', args=[Comment(id=null, nickname=小白, email=1756418661@qq.com, content=测试, avatar=null, createTime=null, blog=null, replyComments=[], parentComment=Comment(id=-1, nickname=null, email=null, content=null, avatar=null, createTime=null, blog=null, replyComments=[], parentComment=null, adminComment=false, blogId=null, parentCommentId=null, parentNickname=null), adminComment=false, blogId=2, parentCommentId=null, parentNickname=null), org.apache.catalina.session.StandardSessionFacade@69063c76, {comment=Comment(id=null, nickname=小白, email=1756418661@qq.com, content=测试, avatar=null, createTime=null, blog=null, replyComments=[], parentComment=Comment(id=-1, nickname=null, email=null, content=null, avatar=null, createTime=null, blog=null, replyComments=[], parentComment=null, adminComment=false, blogId=null, parentCommentId=null, parentNickname=null), adminComment=false, blogId=2, parentCommentId=null, parentNickname=null), org.springframework.validation.BindingResult.comment=org.springframework.validation.BeanPropertyBindingResult: 0 errors}]}
+2020-08-01 16:35:35.387 DEBUG 90724 --- [http-nio-8080-exec-10] com.zlt.blog.dao.BlogMapper.getBlogById  : ==>  Preparing: select b.id,b.flag,b.title,b.content,b.type_id, b.first_picture,b.description,b.recommend,b.published,b.share_statement, b.appreciation,b.commentabled,bt.tags_id from t_blog b,t_blog_tags bt where b.id = bt.blogs_id and b.id = ?; 
+2020-08-01 16:35:35.388 DEBUG 90724 --- [http-nio-8080-exec-10] com.zlt.blog.dao.BlogMapper.getBlogById  : ==> Parameters: 2(Long)
+2020-08-01 16:35:35.392 DEBUG 90724 --- [http-nio-8080-exec-10] com.zlt.blog.dao.BlogMapper.getBlogById  : <==      Total: 2
+2020-08-01 16:35:35.395 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.blog.dao.CommentMapper.saveComment   : ==>  Preparing: insert into t_comment (nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment) values (?,?,?,?,?,?,?,?); 
+2020-08-01 16:35:35.421 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.blog.dao.CommentMapper.saveComment   : ==> Parameters: 小白(String), 1756418661@qq.com(String), 测试(String), /images/avatar.jpg(String), 2020-08-01 16:35:35.392(Timestamp), 2(Long), -1(Long), false(Boolean)
+2020-08-01 16:35:35.511 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.blog.dao.CommentMapper.saveComment   : <==    Updates: 1
+2020-08-01 16:35:35.512 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==>  Preparing: select * from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-08-01 16:35:35.513 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==> Parameters: 2(Long), -1(Long)
+2020-08-01 16:35:35.517 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.b.d.C.getCommentByBlogIdAndParentId  : <==      Total: 1
+2020-08-01 16:35:35.518 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==>  Preparing: select * from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-08-01 16:35:35.519 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==> Parameters: 2(Long), 1(Long)
+2020-08-01 16:35:35.520 DEBUG 90724 --- [http-nio-8080-exec-10] c.z.b.d.C.getCommentByBlogIdAndParentId  : <==      Total: 0
+2020-08-01 16:35:35.521  INFO 90724 --- [http-nio-8080-exec-10] com.zlt.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-08-01 16:35:35.522  INFO 90724 --- [http-nio-8080-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:53.035 DEBUG 90724 --- [http-nio-8080-exec-9] c.z.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? 
+2020-08-01 16:35:53.037 DEBUG 90724 --- [http-nio-8080-exec-9] c.z.b.d.U.findByUsernameAndPassword      : ==> Parameters: zlt(String), e10adc3949ba59abbe56e057f20f883e(String)
+2020-08-01 16:35:53.047 DEBUG 90724 --- [http-nio-8080-exec-9] c.z.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-08-01 16:35:54.045  INFO 90724 --- [http-nio-8080-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-08-01 16:35:54.072 DEBUG 90724 --- [http-nio-8080-exec-8] c.z.b.dao.BlogMapper.getRecommendBlog    : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4 
+2020-08-01 16:35:54.074 DEBUG 90724 --- [http-nio-8080-exec-8] c.z.b.dao.BlogMapper.getRecommendBlog    : ==> Parameters: 
+2020-08-01 16:35:54.081 DEBUG 90724 --- [http-nio-8080-exec-8] c.z.b.dao.BlogMapper.getRecommendBlog    : <==      Total: 1
+2020-08-01 16:35:54.083  INFO 90724 --- [http-nio-8080-exec-8] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-08-01 16:35:54.083  INFO 90724 --- [http-nio-8080-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:57.809  INFO 90724 --- [http-nio-8080-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.blog', args=[2, {}]}
+2020-08-01 16:35:57.813 DEBUG 90724 --- [http-nio-8080-exec-3] c.z.blog.dao.BlogMapper.getBlogDetails   : ==>  Preparing: select b.id,b.first_picture,b.flag,b.title,b.content,b.views, b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,bt.tags_id from t_blog b,t_user u, t_type t, t_blog_tags bt where b.user_id = u.id and b.type_id = t.id and b.id = bt.blogs_id and b.id = ? 
+2020-08-01 16:35:57.814 DEBUG 90724 --- [http-nio-8080-exec-3] c.z.blog.dao.BlogMapper.getBlogDetails   : ==> Parameters: 2(Long)
+2020-08-01 16:35:57.828 DEBUG 90724 --- [http-nio-8080-exec-3] c.z.blog.dao.BlogMapper.getBlogDetails   : <==      Total: 2
+2020-08-01 16:35:57.831 DEBUG 90724 --- [http-nio-8080-exec-3] com.zlt.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog b set b.views = b.views+1 where b.id = ? 
+2020-08-01 16:35:57.832 DEBUG 90724 --- [http-nio-8080-exec-3] com.zlt.blog.dao.BlogMapper.updateViews  : ==> Parameters: 2(Long)
+2020-08-01 16:35:58.047 DEBUG 90724 --- [http-nio-8080-exec-3] com.zlt.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-08-01 16:35:58.048 DEBUG 90724 --- [http-nio-8080-exec-3] com.zlt.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag where id in ( 1 , 3 ) 
+2020-08-01 16:35:58.049 DEBUG 90724 --- [http-nio-8080-exec-3] com.zlt.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-08-01 16:35:58.071 DEBUG 90724 --- [http-nio-8080-exec-3] com.zlt.blog.dao.TagMapper.listTag       : <==      Total: 2
+2020-08-01 16:35:58.072  INFO 90724 --- [http-nio-8080-exec-3] com.zlt.blog.aspect.LogAspect            : Result : blog
+2020-08-01 16:35:58.073  INFO 90724 --- [http-nio-8080-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:59.730  INFO 90724 --- [http-nio-8080-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-08-01 16:35:59.803 DEBUG 90724 --- [http-nio-8080-exec-9] c.z.b.dao.BlogMapper.getRecommendBlog    : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4 
+2020-08-01 16:35:59.804 DEBUG 90724 --- [http-nio-8080-exec-9] c.z.b.dao.BlogMapper.getRecommendBlog    : ==> Parameters: 
+2020-08-01 16:35:59.951 DEBUG 90724 --- [http-nio-8080-exec-9] c.z.b.dao.BlogMapper.getRecommendBlog    : <==      Total: 1
+2020-08-01 16:35:59.952  INFO 90724 --- [http-nio-8080-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-08-01 16:35:59.952  INFO 90724 --- [http-nio-8080-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-08-01 16:35:59.977  INFO 90724 --- [http-nio-8080-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8080/comments/2', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.CommentController.comments', args=[2, {}]}
+2020-08-01 16:35:59.978 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==>  Preparing: select * from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-08-01 16:35:59.978 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==> Parameters: 2(Long), -1(Long)
+2020-08-01 16:36:00.094 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.b.d.C.getCommentByBlogIdAndParentId  : <==      Total: 1
+2020-08-01 16:36:00.096 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==>  Preparing: select * from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-08-01 16:36:00.097 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.b.d.C.getCommentByBlogIdAndParentId  : ==> Parameters: 2(Long), 1(Long)
+2020-08-01 16:36:00.227 DEBUG 90724 --- [http-nio-8080-exec-4] c.z.b.d.C.getCommentByBlogIdAndParentId  : <==      Total: 0
+2020-08-01 16:36:00.228  INFO 90724 --- [http-nio-8080-exec-4] com.zlt.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-08-01 16:36:00.229  INFO 90724 --- [http-nio-8080-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------

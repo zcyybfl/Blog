@@ -1,0 +1,750 @@
+2020-07-23 22:23:31.707  INFO 23728 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 23728 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-23 22:23:31.724  INFO 23728 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-23 22:23:40.023  WARN 23728 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-23 22:23:42.752  WARN 23728 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 80 is already in use
+2020-07-23 22:23:43.256 ERROR 23728 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 80 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 80 or configure this application to listen on another port.
+
+2020-07-23 22:24:14.095  INFO 20540 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 20540 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-23 22:24:14.098  INFO 20540 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-23 22:24:19.544  WARN 20540 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-23 22:24:22.287  INFO 20540 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 9.192 seconds (JVM running for 16.405)
+2020-07-23 22:25:05.735  INFO 20540 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:25:06.432  INFO 20540 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:25:06.449 ERROR 20540 --- [http-nio-8081-exec-1] c.z.b.h.ControllerExceptionHandler       : Request URL : http://localhost:8081/, Exception : {}
+
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description,         t.name ,         u.nickname, u.avatar         from t_blog b, t_type t,t_user u         where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc LIMIT ?
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:235)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy88.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:168)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:82)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:61)
+	at com.sun.proxy.$Proxy89.getIndexBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy90.getIndexBlog(Unknown Source)
+	at com.zlt.blog.service.impl.BlogServiceImpl.getIndexBlog(BlogServiceImpl.java:71)
+	at com.zlt.blog.controller.IndexController.index(IndexController.java:39)
+	at com.zlt.blog.controller.IndexController$$FastClassBySpringCGLIB$$f31de90f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.zlt.blog.controller.IndexController$$EnhancerBySpringCGLIB$$43cba9e5.index(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.util.ExecutorUtil.pageQuery(ExecutorUtil.java:177)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:104)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy123.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 88 common frames omitted
+
+2020-07-23 22:25:06.456  WARN 20540 --- [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description,         t.name ,         u.nickname, u.avatar         from t_blog b, t_type t,t_user u         where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc LIMIT ?
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list']
+2020-07-23 22:26:55.199  INFO 15908 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 15908 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-23 22:26:55.217  INFO 15908 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-23 22:27:03.740  WARN 15908 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-23 22:27:06.599  INFO 15908 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 13.563 seconds (JVM running for 21.762)
+2020-07-23 22:27:13.601  INFO 15908 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:27:14.244  INFO 15908 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:27:14.245  INFO 15908 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:27:15.828  INFO 15908 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:27:15.993  INFO 15908 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:27:15.994  INFO 15908 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:27:30.333  INFO 15908 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/blog/10', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.blog', args=[10, {}]}
+2020-07-23 22:27:30.656  INFO 15908 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:27:30.664 ERROR 15908 --- [http-nio-8081-exec-6] c.z.b.h.ControllerExceptionHandler       : Request URL : http://localhost:8081/blog/10, Exception : {}
+
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select b.id,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,         b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,bt.tags_id         from t_blog b,t_user u, t_type t, t_blog_tags bt         where b.user_id = u.id and b.type_id = t.id and b.id = bt.blogs_id and b.id = ?
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:235)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy89.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:99)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:61)
+	at com.sun.proxy.$Proxy90.getBlogDetails(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy91.getBlogDetails(Unknown Source)
+	at com.zlt.blog.service.impl.BlogServiceImpl.getBlogDetails(BlogServiceImpl.java:49)
+	at com.zlt.blog.controller.IndexController.blog(IndexController.java:61)
+	at com.zlt.blog.controller.IndexController$$FastClassBySpringCGLIB$$f31de90f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.zlt.blog.controller.IndexController$$EnhancerBySpringCGLIB$$3a6b0dff.blog(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy123.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 87 common frames omitted
+
+2020-07-23 22:27:30.672  WARN 15908 --- [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select b.id,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,         b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,bt.tags_id         from t_blog b,t_user u, t_type t, t_blog_tags bt         where b.user_id = u.id and b.type_id = t.id and b.id = bt.blogs_id and b.id = ?
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'b.comment_count' in 'field list']
+2020-07-23 22:29:23.302  INFO 15908 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/blog/10', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.blog', args=[10, {}]}
+2020-07-23 22:29:24.597  INFO 15908 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : blog
+2020-07-23 22:29:24.598  INFO 15908 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:29:26.395  INFO 15908 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:29:26.554  INFO 15908 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:29:26.554  INFO 15908 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:29:48.139  INFO 15908 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:29:48.568  INFO 15908 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:29:48.569  INFO 15908 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:29:49.851  INFO 15908 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:29:50.034  INFO 15908 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:29:50.034  INFO 15908 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:30:05.808  INFO 15908 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/about', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.AboutShowController.about', args=[]}
+2020-07-23 22:30:05.814  INFO 15908 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : about
+2020-07-23 22:30:05.815  INFO 15908 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:30:06.760  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:30:06.914  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:30:06.914  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:32:06.296  INFO 15908 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/about', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.AboutShowController.about', args=[]}
+2020-07-23 22:32:06.297  INFO 15908 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : about
+2020-07-23 22:32:06.297  INFO 15908 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:32:07.218  INFO 15908 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:32:07.398  INFO 15908 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:32:07.399  INFO 15908 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:33:20.271  INFO 15908 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/about', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.AboutShowController.about', args=[]}
+2020-07-23 22:33:20.272  INFO 15908 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : about
+2020-07-23 22:33:20.273  INFO 15908 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:33:22.067  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:33:22.283  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:33:22.284  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:38:33.305  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:38:38.463  WARN 15908 --- [http-nio-8081-exec-10] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4bb15267 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:38:43.468  WARN 15908 --- [http-nio-8081-exec-10] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6602d4c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:38:48.472  WARN 15908 --- [http-nio-8081-exec-10] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@f66a62b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:38:53.476  WARN 15908 --- [http-nio-8081-exec-10] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1c08550a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:38:58.480  WARN 15908 --- [http-nio-8081-exec-10] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7a96d5d1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:39:03.486  WARN 15908 --- [http-nio-8081-exec-10] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1755319b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:39:03.491  INFO 15908 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:39:03.496 ERROR 15908 --- [http-nio-8081-exec-10] c.z.b.h.ControllerExceptionHandler       : Request URL : http://localhost:8081/, Exception : {}
+
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve com.zlt.blog.dao.BlogMapper.getIndexBlog_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:77)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy89.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:168)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:82)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:61)
+	at com.sun.proxy.$Proxy90.getIndexBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy91.getIndexBlog(Unknown Source)
+	at com.zlt.blog.service.impl.BlogServiceImpl.getIndexBlog(BlogServiceImpl.java:71)
+	at com.zlt.blog.controller.IndexController.index(IndexController.java:39)
+	at com.zlt.blog.controller.IndexController$$FastClassBySpringCGLIB$$f31de90f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.zlt.blog.controller.IndexController$$EnhancerBySpringCGLIB$$3a6b0dff.index(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve com.zlt.blog.dao.BlogMapper.getIndexBlog_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:149)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 88 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:85)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.util.ExecutorUtil.executeAutoCount(ExecutorUtil.java:138)
+	at com.github.pagehelper.PageInterceptor.count(PageInterceptor.java:150)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:97)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy123.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	... 94 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:695)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:197)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:162)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79)
+	... 108 common frames omitted
+Caused by: java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.setNetworkTimeout(ConnectionImpl.java:2490)
+	at com.zaxxer.hikari.pool.PoolBase.setNetworkTimeout(PoolBase.java:560)
+	at com.zaxxer.hikari.pool.PoolBase.isConnectionAlive(PoolBase.java:173)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:186)
+	... 113 common frames omitted
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1171)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:576)
+	at com.mysql.cj.jdbc.ConnectionImpl.setNetworkTimeout(ConnectionImpl.java:2486)
+	... 116 common frames omitted
+
+2020-07-23 22:39:03.503  WARN 15908 --- [http-nio-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.
+### The error may exist in file [E:\Study\blog\blogs\target\classes\mapper\BlogDao.xml]
+### The error may involve com.zlt.blog.dao.BlogMapper.getIndexBlog_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30176ms.]
+2020-07-23 22:39:31.549  INFO 15908 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:39:36.555  WARN 15908 --- [http-nio-8081-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@53f768c4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:39:41.662  WARN 15908 --- [http-nio-8081-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@c724651 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-07-23 22:39:56.586  INFO 23936 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 23936 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-23 22:39:56.590  INFO 23936 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-23 22:40:05.399  WARN 23936 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-23 22:40:08.217  INFO 23936 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 12.611 seconds (JVM running for 19.355)
+2020-07-23 22:40:15.806  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:40:16.444  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:40:16.446  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:40:18.224  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:40:18.387  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:40:18.387  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:40:22.514  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TypeShowController.types', args=[-1, {}, 1]}
+2020-07-23 22:40:22.833  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : types
+2020-07-23 22:40:22.834  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:40:23.738  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:40:23.899  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:40:23.899  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:40:29.913  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TagShowController.Tags', args=[-1, {}, 1]}
+2020-07-23 22:40:30.306  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : tags
+2020-07-23 22:40:30.307  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:40:31.254  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:40:31.505  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:40:31.506  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:09.465  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.ArchiveShowController.archive', args=[{}]}
+2020-07-23 22:41:09.617  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : archives
+2020-07-23 22:41:09.618  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:10.496  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:10.665  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:10.665  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:17.092  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:41:17.251  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:41:17.252  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:18.223  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:18.412  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:18.413  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:21.459  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/about', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.AboutShowController.about', args=[]}
+2020-07-23 22:41:21.464  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Result : about
+2020-07-23 22:41:21.465  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:22.468  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:22.658  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:22.658  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:28.662  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:41:28.807  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:41:28.808  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:29.757  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:30.373  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:30.374  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:30.374  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.ArchiveShowController.archive', args=[{}]}
+2020-07-23 22:41:30.451  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : archives
+2020-07-23 22:41:30.452  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:31.312  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:31.517  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:31.521  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:31.648  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TagShowController.Tags', args=[-1, {}, 1]}
+2020-07-23 22:41:31.912  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : tags
+2020-07-23 22:41:31.913  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:32.795  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:32.955  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:32.955  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:33.453  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TypeShowController.types', args=[-1, {}, 1]}
+2020-07-23 22:41:33.677  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : types
+2020-07-23 22:41:33.678  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:41:34.405  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:41:34.551  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:41:34.551  INFO 23936 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:11.295  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:42:11.465  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:42:11.466  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:19.256  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:42:19.857  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:42:19.858  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:20.919  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:42:21.091  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:42:21.092  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:38.706  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:42:38.990  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:42:38.991  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:48.536  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:42:48.688  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:42:48.690  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:57.407  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:42:57.866  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:42:57.866  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:59.127  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:42:59.332  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:42:59.334  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:42:59.550  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:42:59.627  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:42:59.628  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:00.612  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:43:00.774  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:43:00.775  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:12.847  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.ArchiveShowController.archive', args=[{}]}
+2020-07-23 22:43:12.995  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : archives
+2020-07-23 22:43:12.996  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:13.812  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:43:13.972  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:43:13.974  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:17.816  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:43:18.271  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:43:18.272  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:19.252  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:43:19.451  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:43:19.453  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:23.021  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/blog/10', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.blog', args=[10, {}]}
+2020-07-23 22:43:23.641  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : blog
+2020-07-23 22:43:23.641  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:24.976  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:43:25.271  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:43:25.272  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:36.997  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:43:37.448  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:43:37.448  INFO 23936 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:38.473  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:43:38.683  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:43:38.684  INFO 23936 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:41.560  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:43:41.731  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:43:41.732  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:43:42.709  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:43:42.862  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:43:42.863  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:02.099  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:46:02.551  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:46:02.551  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:03.641  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:46:03.816  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:46:03.817  INFO 23936 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:07.951  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/tags/12', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TagShowController.Tags', args=[12, {}, 1]}
+2020-07-23 22:46:08.300  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : tags
+2020-07-23 22:46:08.300  INFO 23936 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:09.044  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:46:09.268  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:46:09.269  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:15.233  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TypeShowController.types', args=[-1, {}, 1]}
+2020-07-23 22:46:15.605  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : types
+2020-07-23 22:46:15.605  INFO 23936 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:16.707  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:46:16.897  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:46:16.898  INFO 23936 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:23.367  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/blog/10', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.blog', args=[10, {}]}
+2020-07-23 22:46:23.736  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : blog
+2020-07-23 22:46:23.737  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:46:24.892  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:46:25.070  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:46:25.071  INFO 23936 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:49:11.696  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:49:11.841  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:49:11.842  INFO 23936 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:49:13.431  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:49:13.642  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:49:13.643  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:49:16.369  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:49:16.545  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:49:16.545  INFO 23936 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:52:21.888  INFO 21260 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 21260 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-23 22:52:21.891  INFO 21260 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-23 22:52:29.676  WARN 21260 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-23 22:52:32.273  INFO 21260 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 11.072 seconds (JVM running for 17.004)
+2020-07-23 22:52:55.599  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:52:56.242  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:52:56.244  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:52:58.629  INFO 21260 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:52:58.808  INFO 21260 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:52:58.809  INFO 21260 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:06.222  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TypeShowController.types', args=[-1, {}, 1]}
+2020-07-23 22:53:06.523  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : types
+2020-07-23 22:53:06.525  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:07.400  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:53:07.563  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:53:07.563  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:16.668  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TagShowController.Tags', args=[-1, {}, 1]}
+2020-07-23 22:53:17.003  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : tags
+2020-07-23 22:53:17.004  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:17.897  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:53:18.078  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:53:18.079  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:18.306  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.ArchiveShowController.archive', args=[{}]}
+2020-07-23 22:53:18.404  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : archives
+2020-07-23 22:53:18.405  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:19.384  INFO 21260 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:53:19.551  INFO 21260 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:53:19.551  INFO 21260 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:21.735  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:53:21.972  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:53:21.973  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:22.641  INFO 21260 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:53:22.798  INFO 21260 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:53:22.799  INFO 21260 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:24.717  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/about', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.AboutShowController.about', args=[]}
+2020-07-23 22:53:24.722  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : about
+2020-07-23 22:53:24.728  INFO 21260 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:53:25.663  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:53:25.824  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:53:25.824  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:38.594  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/about', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.AboutShowController.about', args=[]}
+2020-07-23 22:54:38.595  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : about
+2020-07-23 22:54:38.596  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:39.677  INFO 21260 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:54:39.834  INFO 21260 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:54:39.834  INFO 21260 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:54.640  INFO 21260 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.FriendShowController.friends', args=[{}]}
+2020-07-23 22:54:54.783  INFO 21260 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : Result : friends
+2020-07-23 22:54:54.784  INFO 21260 --- [http-nio-8081-exec-8] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:55.816  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:54:55.983  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:54:55.983  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:56.620  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.ArchiveShowController.archive', args=[{}]}
+2020-07-23 22:54:56.765  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : archives
+2020-07-23 22:54:56.766  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:57.552  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:54:57.707  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:54:57.707  INFO 21260 --- [http-nio-8081-exec-9] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:58.414  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TagShowController.Tags', args=[-1, {}, 1]}
+2020-07-23 22:54:58.705  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : tags
+2020-07-23 22:54:58.705  INFO 21260 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:59.573  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:54:59.766  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:54:59.766  INFO 21260 --- [http-nio-8081-exec-5] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:54:59.805  INFO 21260 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TypeShowController.types', args=[-1, {}, 1]}
+2020-07-23 22:55:00.042  INFO 21260 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : Result : types
+2020-07-23 22:55:00.043  INFO 21260 --- [http-nio-8081-exec-10] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:55:00.829  INFO 21260 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:55:01.007  INFO 21260 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:55:01.008  INFO 21260 --- [http-nio-8081-exec-4] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:55:01.781  INFO 21260 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-23 22:55:02.235  INFO 21260 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-23 22:55:02.236  INFO 21260 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-23 22:55:03.248  INFO 21260 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-23 22:55:03.410  INFO 21260 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-23 22:55:03.410  INFO 21260 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------

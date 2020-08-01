@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://zltzlt.cn:3306/blogs?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    username: blogs
+    password: zltblogs956
+
+logging:
+  level:
+    root: warn
+    com.zlt.blog: info
+  file:
+    name: log/blog-pro.log
+
+server:
+  port: 80

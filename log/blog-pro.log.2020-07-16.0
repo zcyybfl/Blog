@@ -1,0 +1,54 @@
+2020-07-03 11:09:53.790  INFO 16204 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 16204 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-03 11:09:53.793  INFO 16204 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-03 11:09:57.749  WARN 16204 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-03 11:10:02.605  INFO 16204 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 9.573 seconds (JVM running for 13.944)
+2020-07-03 11:10:44.356  INFO 16204 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[Page request [number: 0, size 5, sort: updateTime: DESC], {}]}
+2020-07-03 11:10:45.707  WARN 16204 --- [http-nio-8081-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-03 11:10:45.811  WARN 16204 --- [http-nio-8081-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-03 11:10:45.963  INFO 16204 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-03 11:10:45.964  INFO 16204 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-03 11:10:48.834  INFO 16204 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-03 11:10:49.250  INFO 16204 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-03 11:10:49.250  INFO 16204 --- [http-nio-8081-exec-6] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-03 11:10:54.400  INFO 16204 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.TypeShowController.types', args=[Page request [number: 0, size 2, sort: updateTime: DESC], -1, {}]}
+2020-07-03 11:10:55.129  INFO 16204 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : Result : types
+2020-07-03 11:10:55.130  INFO 16204 --- [http-nio-8081-exec-3] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-03 11:10:56.897  INFO 16204 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-03 11:10:57.282  INFO 16204 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-03 11:10:57.282  INFO 16204 --- [http-nio-8081-exec-7] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-03 16:23:12.776  INFO 12036 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 12036 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-03 16:23:12.814  INFO 12036 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-03 16:23:19.394  WARN 12036 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-03 16:23:22.061  WARN 12036 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 80 is already in use
+2020-07-03 16:23:23.347 ERROR 12036 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 80 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 80 or configure this application to listen on another port.
+
+2020-07-03 16:24:19.181  INFO 16392 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 16392 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-03 16:24:19.185  INFO 16392 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-03 16:24:23.360  WARN 16392 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-03 16:24:26.171  WARN 16392 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 80 is already in use
+2020-07-03 16:24:27.217 ERROR 16392 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 80 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 80 or configure this application to listen on another port.
+

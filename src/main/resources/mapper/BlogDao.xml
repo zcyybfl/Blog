@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlt.blog.dao.BlogMapper">
+
+    <!--新增保存博客-->
+    <insert id="saveBlog" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into  t_blog (id,title, content, first_picture, flag,
+    views, appreciation, share_statement, commentabled, published,
+    recommend, create_time, update_time, type_id, user_id, description)
+    values (#{id},#{title},#{content},#{firstPicture},#{flag},#{views},#{appreciation},
+    #{shareStatement},#{commentabled},#{published},#{recommend},#{createTime},
+    #{updateTime},#{typeId},#{userId},#{description})
+    </insert>
+
+    <!--保存博客的标签-->
+    <insert id="saveBlogTags" parameterType="com.zlt.blog.entity.Blog" >
+        insert into t_blog_tags (blogs_id,tags_id) values
+        <foreach collection="tags" item="tag" separator=",">
+            (#{id},#{tag.id})
+        </foreach>
+    </insert>
+
+
+    
+    <resultMap id="adminBlog" type="com.zlt.blog.vo.BlogQuery">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="recommend" column="recommend"/>
+        <result property="published" column="published"/>
+        <result property="typeId" column="type_id"/>
+        <association property="type" javaType="com.zlt.blog.entity.Type">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="editBlog" type="com.zlt.blog.entity.Blog">
+        <id property="id" column="id"/>
+        <result property="flag" column="flag"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="typeId" column="type_id"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="description" column="description"/>
+        <result property="recommend" column="recommend"/>
+        <result property="published" column="published"/>
+        <result property="shareStatement" column="share_statement"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="commentabled" column="commentabled"/>
+        <collection property="tags" ofType="com.zlt.blog.entity.Tag" column="id">
+            <result property="id" column="tags_id"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="indexBlog" type="com.zlt.blog.vo.IndexBlogVo">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="views" column="views"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="description" column="description"/>
+
+        <result property="typeName" column="name"/>
+
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+    <!--搜索文章-->
+    <select id="getSearchBlog"  resultMap="indexBlog">
+        <bind name="pattern" value="'%' + query + '%'" />
+        select b.id,b.title,b.first_picture, b.views,b.update_time,b.description,
+        t.name ,u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id and (b.title like #{pattern} or b.content like  #{pattern})
+        order by b.update_time desc
+    </select>
+
+    <!--首页博客信息的获取-->
+    <select id="getIndexBlog" resultMap="indexBlog">
+        select b.id,b.title,b.first_picture, b.views, b.update_time,b.description,
+        t.name ,
+        u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc
+    </select>
+
+    <!--分类页博客信息的获取-->
+    <select id="getBlogByTypeId" resultMap="indexBlog">
+        select b.id,b.title,b.first_picture, b.views,b.update_time,b.description,
+        t.name ,u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id and b.type_id = #{id} order by b.update_time desc
+    </select>
+
+    <!--标签页博客信息的获取-->
+    <select id="getBlogByTagId" resultMap="indexBlog">
+        select b.id,b.title,b.first_picture, b.views,b.update_time,b.description,
+        t.name ,u.nickname, u.avatar
+        from t_blog b, t_tag t,t_user u,t_blog_tags bt
+        where b.id = bt.blogs_id and  u.id = b.user_id and t.id = bt.tags_id and bt.tags_id = #{id} order by b.update_time desc
+    </select>
+
+
+
+    <!--首页最新推荐文章-->
+    <select id="getRecommendBlog" resultType="com.zlt.blog.entity.Blog">
+        select * from t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4
+    </select>
+
+    <!--查询管理博客的列表-->
+    <select id="getAllBlogQuery" resultMap="adminBlog">
+        select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name
+        from t_blog b left outer join
+        t_type t on b.type_id = t.id order by b.update_time desc
+    </select>
+
+    <!--查询编辑修改文章-->
+    <select id="getBlogById" resultMap="editBlog" >
+        select b.id,b.flag,b.title,b.content,b.type_id,
+        b.first_picture,b.description,b.recommend,b.published,b.share_statement,
+        b.appreciation,b.commentabled,bt.tags_id from t_blog b,t_blog_tags bt  where b.id = bt.blogs_id and b.id = #{id};
+    </select>
+
+    <resultMap id="detailsBlog" type="com.zlt.blog.vo.BlogDetailsVo">
+        <id property="id" column="id"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="flag" column="flag"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="typeName" column="name"/>
+        <result property="views" column="views"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="commentabled" column="commentabled"/>
+        <result property="shareStatement" column="share_statement"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+        <collection property="tags" ofType="com.zlt.blog.entity.Tag">
+            <result property="id" column="tags_id"/>
+        </collection>
+    </resultMap>
+
+    <!--博客详情查询-->
+    <select id="getBlogDetails" resultMap="detailsBlog">
+        select b.id,b.first_picture,b.flag,b.title,b.content,b.views,
+        b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,bt.tags_id
+        from t_blog b,t_user u, t_type t, t_blog_tags bt
+        where b.user_id = u.id and b.type_id = t.id and b.id = bt.blogs_id and b.id = #{id}
+    </select>
+
+    <!--根据标题、分类、推荐查询博客-->
+    <select id="searchBlogByTitleOrTypeOrRecommend" resultMap="adminBlog">
+        <bind name="pattern" value="'%' + title + '%'" />
+        select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name from t_blog b, t_type t
+        <where>
+            <if test="true">
+                b.type_id = t.id
+            </if>
+            <if test="typeId != null">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="title != null">
+                and b.title like #{pattern}
+            </if>
+            <if test="true">
+                and b.recommend = #{recommend}
+            </if>
+        </where>
+    </select>
+
+
+    <!--更新博客-->
+    <update id="updateBlog">
+        update t_blog set title = #{title}, content = #{content}, first_picture = #{firstPicture}, flag = #{flag},
+        appreciation = #{appreciation}, share_statement = #{shareStatement}, commentabled = #{commentabled}, published = #{published},
+        recommend = #{recommend}, update_time = #{updateTime}, type_id = #{typeId}, description = #{description} where id = #{id}
+    </update>
+
+    <!--文章访问自增-->
+    <update id="updateViews">
+        update t_blog b set b.views = b.views+1 where b.id = #{id}
+    </update>
+
+    <!--删除博客-->
+    <delete id="deleteBlog">
+        delete from t_blog where id = #{id}
+    </delete>
+
+    <!--删除博客的标签-->
+    <delete id="deleteBlogTags">
+        delete from t_blog_tags where blogs_id = #{id}
+    </delete>
+</mapper>

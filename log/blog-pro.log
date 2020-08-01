@@ -1,0 +1,10 @@
+2020-07-24 10:56:54.342  INFO 16596 --- [restartedMain] com.zlt.blog.BlogApplication             : Starting BlogApplication on LAPTOP-CNOKG68H with PID 16596 (E:\Study\blog\blogs\target\classes started by 郑龙涛 in E:\Study\blog\blogs)
+2020-07-24 10:56:54.362  INFO 16596 --- [restartedMain] com.zlt.blog.BlogApplication             : The following profiles are active: pro
+2020-07-24 10:57:04.297  WARN 16596 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-24 10:57:06.956  INFO 16596 --- [restartedMain] com.zlt.blog.BlogApplication             : Started BlogApplication in 14.045 seconds (JVM running for 21.564)
+2020-07-24 10:57:33.321  INFO 16596 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.index', args=[{}, 1]}
+2020-07-24 10:57:34.041  INFO 16596 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : Result : index
+2020-07-24 10:57:34.043  INFO 16596 --- [http-nio-8081-exec-1] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------
+2020-07-24 10:57:36.583  INFO 16596 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Request : {url='http://localhost:8081/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.zlt.blog.controller.IndexController.newblogs', args=[{}]}
+2020-07-24 10:57:36.738  INFO 16596 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2020-07-24 10:57:36.739  INFO 16596 --- [http-nio-8081-exec-2] com.zlt.blog.aspect.LogAspect            : -----------doAfter-------------

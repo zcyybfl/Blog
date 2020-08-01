@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>友链</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Blog</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini pencil icon"></i>友链</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+                <div class="right m-item item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search....">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!--中间内容-->
+    <div  class="m-margin- animated fadeIn">
+        <div class="ui m-opacity container">
+            <div class="box-shadow-max">
+                <div class="ui segment m-padded-tb-large m-opacity">
+                    <div class="ui container">
+                        <div class="" style="font-size: 35px;font-weight: bold" align="center">友链须知</div>
+                        <ui class="list">
+                            <div class="m-margin-left-mini m-margin-tb-tiny" style="font-size: large;font-weight: bold">网站要求</div>
+                            <br>
+                            <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">无色情内容，无政治敏感内容，网站要能长期正常访问</li>
+                            <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">原创博客、技术博客、游记博客优先</li>
+                            <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">需要交换友链，先把本站添加到你的网站中，然后根据下面的格式，给我发email</li>
+                            <br>
+                            <div class="m-margin-left-mini m-margin-tb-tiny" style="font-size: large;font-weight: bold">申请格式</div>
+                            <br>
+                            <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">博客标题：孑龙</li>
+                            <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">博客地址：http://zltzlt.cn</li>
+                            <li class="m-margin-left-big m-margin-tb-tiny" style="font-size: medium">图片地址：http://zltzlt.cn:90/blog.jpg</li>
+                        </ui>
+                    </div>
+                </div>
+            </div>
+
+            <!--友人帐区域-->
+            <div class="box-shadow-max">
+                <div class="ui top attached teal m-opacity segment box-shadow-max">
+                    <div class="ui m-padded-tb-large m-container-tiny">
+                        <div class="ui stackable m-container-mini m-opacity grid">
+
+                            <!--友人帐显示区域-->
+                            <div class="m-margin-tb-tiny four wide column" th:each="friend : ${friends}">
+                                <a href="#" class="class_outer" th:href="@{${friend.blogAddress}}" target="_blank">
+                                    <div align="center">
+                                        <div class="friends-link">
+                                            <img src="../static/images/me.jpg" th:src="@{${friend.pictureAddress}}"  alt="" class="friends-link-image">
+                                            <div class="m-margin-top">
+                                                <h4 class="m-font-size-text-friends m-margin-tb-tiny" th:text="${friend.blogName}">孑龙</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <!--底部footer-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wechat.png" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事</a>
+                        <a href="#" class="item">用户故事</a>
+                        <a href="#" class="item">用户故事</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: 1756418661@qq.com</a>
+                        <a href="#" class="item">QQ 1756418661</a>
+                        <a href="#" class="item">用户故事</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我按个hi爱过哈根喜欢发生发法法 阿发广东省工会身高多少和十大歌手感受到刚开始三个收到货看看</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">asfjiashgiashgiashgaiogasgas</p>
+        </div>
+    </footer>
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+        $('.wechat').popup({
+            popup : $('.wechat-qr'),
+            position: 'bottom center'
+        });
+        $('.qq').popup();
+    </script>
+
+</body>
+</html>
