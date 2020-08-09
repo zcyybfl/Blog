@@ -494,7 +494,8 @@ h5,h6{font-size:1em;}
                                     </div>
                                     <div class="actions">
                                         <a class="reply" data-commentid="1" data-commnetnickname="Matt" th:attr="data-commentid=${comment.id},data-commnetnickname=${comment.nickname}" onclick="reply(this)">回复</a>
-                                        <a th:if="${session.user}">删除</a>
+<!--                                        <a th:href="@{/comments/delete/{id}/{blogId}(id=${comment.id},blogId=${comment.blogId})}" th:if="${session.user}">删除</a>-->
+                                        <a data-commentid="1" data-blogid="1" th:attr="data-commentid=${comment.id},data-blogid=${comment.blogId}" th:if="${session.user}" onclick="deleteComment(this)">删除</a>
                                     </div>
                                 </div>
 
@@ -517,6 +518,7 @@ h5,h6{font-size:1em;}
                                             </div>
                                             <div class="actions">
                                                 <a class="reply" data-commentid="1" data-commnetnickname="Matt" th:attr="data-commentid=${reply.id},data-commnetnickname=${reply.nickname}" onclick="reply(this)">回复</a>
+                                                <a data-commentid="1" data-blogid="1" th:attr="data-commentid=${reply.id},data-blogid=${comment.blogId}" th:if="${session.user}" onclick="deleteComment(this)">删除</a>
                                             </div>
                                         </div>
 
@@ -783,6 +785,9 @@ h5,h6{font-size:1em;}
                 console.log('校验失败');
             }
         });
+
+
+
         function postData() {
             $("#comment-container").load(/*[[@{/comments}]]*/"",{
                 "parentComment.id" : $("[name='parentComment.id']").val(),
@@ -809,6 +814,19 @@ h5,h6{font-size:1em;}
             $("[name='content']").attr('placeholder',"@"+commentNickname).focus();
             $("[name='parentComment.id']").val(commentId);
             $(window).scrollTo($('#comment-form'),500);
+        }
+
+        function deleteComment(obj) {
+            var commentId = $(obj).data('commentid');
+            var blogId = $(obj).data('blogid');
+            console.log(commentId)
+            console.log(blogId)
+            console.log(typeof blogId)
+            // $("#comment-container").load(/*[[@{/comments/delete/{id}/{blogId}(id=${commentid},blogId=${blog.id})}]]*/"")
+            $("#comment-container").load(/*[[@{/comments/delete}]]*/"",{
+                "id" : commentId,
+                "blogId" : blogId
+            })
         }
     </script>
 

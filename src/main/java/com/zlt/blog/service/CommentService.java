@@ -8,4 +8,6 @@ public interface CommentService {
     List<Comment> listCommentByBlogId(Long id);
 
     int saveComment(Comment comment);
+
+    void deleteComment(Long id);
 }

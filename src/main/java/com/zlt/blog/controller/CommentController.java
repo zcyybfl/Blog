@@ -57,4 +57,11 @@ public class CommentController {
 
         return "blog :: commentList";
     }
+
+    @PostMapping("/comments/delete")
+    public String delete(Long id,Long blogId,Model model){
+        commentService.deleteComment(id);
+        model.addAttribute("comments",commentService.listCommentByBlogId(blogId));
+        return "blog :: commentList";
+    }
 }

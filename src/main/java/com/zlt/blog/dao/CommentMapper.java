@@ -28,4 +28,10 @@ public interface CommentMapper {
 
     //添加评论
     int saveComment(Comment comment);
+
+    //查出要删除的评论的所有子评论
+    List<Long> getAllDeleteComment(Long id);
+
+    //删除评论
+    void deleteComment(List<Long> ids);
 }
