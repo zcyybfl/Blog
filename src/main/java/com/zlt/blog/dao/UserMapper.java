@@ -24,4 +24,10 @@ public interface UserMapper {
 
     User findByUsernameAndPassword(String username, String password);
 
+    int saveUser(User user);
+
+    Long findUsername(String username);
+
+    Long findNickname(String nickname);
+
 }

@@ -2,9 +2,12 @@ package com.zlt.blog.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.zlt.blog.entity.User;
 import com.zlt.blog.service.BlogService;
 import com.zlt.blog.service.TagService;
 import com.zlt.blog.service.TypeService;
+import com.zlt.blog.service.UserService;
+import com.zlt.blog.util.MD5Utils;
 import com.zlt.blog.vo.BlogDetailsVo;
 import com.zlt.blog.vo.IndexBlogVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -31,6 +36,9 @@ public class IndexController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private UserService userService;
 
     //初始化首页
     @GetMapping("/")
@@ -69,5 +77,67 @@ public class IndexController {
     public String newblogs(Model model){
         model.addAttribute("newblogs",blogService.getRecommendBlog());
         return "_fragments :: newblogList";
+    }
+
+    //跳转到登录
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
+    }
+
+    //跳转到注册
+    @GetMapping("/register")
+    public String registerPage(){
+        return "register";
+    }
+
+    //登录
+    @PostMapping("/login")
+    public String login(@RequestParam String username,
+                        @RequestParam String password,
+                        HttpSession session,
+                        RedirectAttributes attributes){
+        User user = userService.checkUser(username,password);
+        if (user != null){
+            user.setPassword(null);
+            session.setAttribute("user",user);
+            return "redirect:/";
+        }else {
+            attributes.addFlashAttribute("message","用户名或密码错误");
+            return "redirect:/login";
+        }
+    }
+
+    //注册
+    @PostMapping("/register")
+    public String register(User user,@RequestParam String password1,RedirectAttributes attributes){
+        System.out.println(user.getNickname());
+        System.out.println(user.getUsername());
+        System.out.println(user.getEmail());
+        System.out.println(password1);
+
+        if (userService.findUsername(user.getUsername())!=null){
+            attributes.addFlashAttribute("message","用户名重复");
+            return "redirect:/register";
+        }
+        if (userService.findNickname(user.getNickname())!=null){
+            attributes.addFlashAttribute("message","昵称重复");
+            return "redirect:/register";
+        }
+        if (!(password1.equals(user.getPassword()))){
+            attributes.addFlashAttribute("message","两次密码输入不一致");
+            return "redirect:/register";
+        }
+        user.setPassword(MD5Utils.code(user.getPassword()));
+        System.out.println(user.getPassword());
+        userService.saveUser(user);
+        return "redirect:/login";
+    }
+
+    //注销
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
+        return "redirect:/";
     }
 }

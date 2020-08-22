@@ -5,4 +5,17 @@
         select * from t_user
         where username = #{username} and password = #{password}
     </select>
+
+    <insert id="saveUser" parameterType="com.zlt.blog.entity.User">
+        insert into t_user(avatar,create_time,email,nickname,password,type,update_time,username) values
+        (#{avatar},#{createTime},#{email},#{nickname},#{password},#{type},#{updateTime},#{username})
+    </insert>
+
+    <select id="findUsername" resultType="java.lang.Long">
+        select id from t_user where username = #{username}
+    </select>
+
+    <select id="findNickname" resultType="java.lang.Long">
+        select id from t_user where nickname = #{nickname}
+    </select>
 </mapper>

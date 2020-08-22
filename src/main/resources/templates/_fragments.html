@@ -33,6 +33,19 @@
                     </div>
                 </form>
             </div>
+            <a href="#" th:href="@{/login}" th:unless="${session.user}" class="right m-item item m-mobile-hide">登录</a>
+            <div th:if="${session.user}" class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://picsum.photos/id/1005/100/100" th:src="${session.user.avatar}">
+                    </div>
+                    <div th:text="${session.user.nickname}">郑龙涛</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
@@ -100,11 +113,15 @@
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
 
     <script src="../static/lib/timeline/timeline.js" th:src="@{/lib/timeline/timeline.js}"></script>
+    
 
     <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 
     <script>
         $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
     </script>
 
 </th:block>

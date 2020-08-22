@@ -7,6 +7,8 @@ import com.zlt.blog.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -19,5 +21,24 @@ public class UserServiceImpl implements UserService {
 
         User user = userMapper.findByUsernameAndPassword(username,MD5Utils.code(password));
         return user;
+    }
+
+    @Override
+    public int saveUser(User user) {
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
+        user.setType(2);
+        user.setAvatar("https://picsum.photos/id/1005/100/100");
+        return userMapper.saveUser(user);
+    }
+
+    @Override
+    public Long findUsername(String username) {
+        return userMapper.findUsername(username);
+    }
+
+    @Override
+    public Long findNickname(String nickname) {
+        return userMapper.findNickname(nickname);
     }
 }

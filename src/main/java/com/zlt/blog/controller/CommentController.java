@@ -40,7 +40,12 @@ public class CommentController {
         User user = (User) session.getAttribute("user");
         if (user != null){
             comment.setAvatar(user.getAvatar());
-            comment.setAdminComment(true);
+            if (user.getType()==1){
+                comment.setAdminComment(true);
+            }else {
+                comment.setAdminComment(false);
+            }
+
             //comment.setNickname(user.getNickname());
         }else {
             comment.setAvatar(avatar);
