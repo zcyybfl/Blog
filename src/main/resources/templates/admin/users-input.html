@@ -3,7 +3,7 @@
 <head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>分类新增</title>
+    <title>用户编辑</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
@@ -48,16 +48,35 @@
     <!--中间内容-->
     <div class="m-container-small m-padded-tb-big">
         <div class="ui container">
-            <form action="#" method="post" th:object="${type}" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})}" class="ui form">
+            <form action="#" method="post" th:object="${user}" th:action="@{/admin/user}" class="ui form">
 
                 <input type="hidden" name="id" th:value="*{id}">
 
 
                 <div class="required field">
+
                     <div class="ui left labeled input">
-                        <label class="ui teal basic label">名称</label>
-                        <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+                        <label class="ui teal basic label">昵称</label>
+                        <input type="text" name="nickname" placeholder="用户昵称" th:value="*{nickname}">
                     </div>
+
+                    <div class="ui left labeled input m-margin-top">
+                        <label class="ui teal basic label">类型</label>
+                        <!--<input type="text" name="name" placeholder="用户类型" th:value="*{name}">-->
+                        <div class="ui fluid selection dropdown">
+                            <input type="hidden" name="type"  th:value="*{type}">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">类型</div>
+                            <div class="menu">
+                                <!--<div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>-->
+                                <div class="item" data-value="1">超管</div>
+                                <div class="item" data-value="2">普管</div>
+                                <div class="item" data-value="3">游客</div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
 
@@ -128,11 +147,18 @@
         });
         $('.ui.form').form({
             fields : {
-                title : {
-                    identifier : 'name',
+                nickname : {
+                    identifier : 'nickname',
                     rules : [{
                         type : 'empty',
-                        prompt : '请输入类型名称'
+                        prompt : '请输入用户昵称'
+                    }]
+                },
+                type : {
+                    identifier: 'type',
+                    rules: [{
+                        type : 'empty',
+                        prompt: '请选择用户类型'
                     }]
                 }
             }

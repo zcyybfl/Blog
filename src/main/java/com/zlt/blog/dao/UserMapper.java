@@ -3,6 +3,8 @@ package com.zlt.blog.dao;
 import com.zlt.blog.entity.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * █████▒█      ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
  * ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
@@ -29,5 +31,13 @@ public interface UserMapper {
     Long findUsername(String username);
 
     Long findNickname(String nickname);
+
+    User findUserById(Long id);
+
+    List<User> findAllUser();
+
+    int updateUserNicknameAndType(User user);
+
+    void deleteUser(Long id);
 
 }

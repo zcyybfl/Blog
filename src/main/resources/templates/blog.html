@@ -495,7 +495,9 @@ h5,h6{font-size:1em;}
                                     <div class="actions">
                                         <a class="reply" data-commentid="1" data-commnetnickname="Matt" th:attr="data-commentid=${comment.id},data-commnetnickname=${comment.nickname}" onclick="reply(this)">回复</a>
 <!--                                        <a th:href="@{/comments/delete/{id}/{blogId}(id=${comment.id},blogId=${comment.blogId})}" th:if="${session.user}">删除</a>-->
-                                        <a data-commentid="1" data-blogid="1" th:attr="data-commentid=${comment.id},data-blogid=${comment.blogId}" th:if="${session.user.type}==1" onclick="deleteComment(this)">删除</a>
+                                        <span th:if="${session.user}">
+                                            <a data-commentid="1" data-blogid="1" th:attr="data-commentid=${comment.id},data-blogid=${comment.blogId}" th:if="${session.user.type}==1" onclick="deleteComment(this)">删除</a>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -518,7 +520,9 @@ h5,h6{font-size:1em;}
                                             </div>
                                             <div class="actions">
                                                 <a class="reply" data-commentid="1" data-commnetnickname="Matt" th:attr="data-commentid=${reply.id},data-commnetnickname=${reply.nickname}" onclick="reply(this)">回复</a>
-                                                <a data-commentid="1" data-blogid="1" th:attr="data-commentid=${reply.id},data-blogid=${comment.blogId}" th:if="${session.user.type}==1" onclick="deleteComment(this)">删除</a>
+                                                <span th:if="${session.user}">
+                                                    <a data-commentid="1" data-blogid="1" th:attr="data-commentid=${reply.id},data-blogid=${comment.blogId}" th:if="${session.user.type}==1" onclick="deleteComment(this)">删除</a>
+                                                </span>
                                             </div>
                                         </div>
 
@@ -824,6 +828,7 @@ h5,h6{font-size:1em;}
                 "blogId" : blogId
             })
         }
+
     </script>
 
 </body>

@@ -18,4 +18,20 @@
     <select id="findNickname" resultType="java.lang.Long">
         select id from t_user where nickname = #{nickname}
     </select>
+
+    <select id="findUserById" resultType="com.zlt.blog.entity.User">
+        select * from t_user where id = #{id}
+    </select>
+
+    <select id="findAllUser" resultType="com.zlt.blog.entity.User">
+        select * from t_user
+    </select>
+
+    <update id="updateUserNicknameAndType">
+        update t_user set nickname = #{nickname}, type = #{type} where id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        delete from t_user where id = #{id}
+    </delete>
 </mapper>

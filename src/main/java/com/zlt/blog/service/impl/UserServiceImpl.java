@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
     public int saveUser(User user) {
         user.setCreateTime(new Date());
         user.setUpdateTime(new Date());
-        user.setType(2);
+        user.setType(3);
         user.setAvatar("https://picsum.photos/id/1005/100/100");
         return userMapper.saveUser(user);
     }
@@ -40,5 +41,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public Long findNickname(String nickname) {
         return userMapper.findNickname(nickname);
+    }
+
+    @Override
+    public User findUserById(Long id) {
+        return userMapper.findUserById(id);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userMapper.findAllUser();
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userMapper.updateUserNicknameAndType(user);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userMapper.deleteUser(id);
     }
 }

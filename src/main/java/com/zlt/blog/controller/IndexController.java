@@ -111,10 +111,7 @@ public class IndexController {
     //注册
     @PostMapping("/register")
     public String register(User user,@RequestParam String password1,RedirectAttributes attributes){
-        System.out.println(user.getNickname());
-        System.out.println(user.getUsername());
-        System.out.println(user.getEmail());
-        System.out.println(password1);
+
 
         if (userService.findUsername(user.getUsername())!=null){
             attributes.addFlashAttribute("message","用户名重复");
